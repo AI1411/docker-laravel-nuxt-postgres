@@ -17,6 +17,7 @@ logs-clear:
 	sudo rm api/storage/logs/*.log
 db-migrate:
 	docker-compose exec php php artisan migrate
+migrate: db-migrate
 db-rollback:
 	docker-compose exec php php artisan rollback
 db-fresh:
@@ -42,4 +43,4 @@ storage:
 autoload:
 	docker-compose exec php composer dump-autoload
 #まとめて実行
-install: build env-api env-client composer-install key storage permissions migrate rn
+install: build env-api env-client composer-install key storage permissions migrate
