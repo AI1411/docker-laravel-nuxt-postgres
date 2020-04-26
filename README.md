@@ -11,13 +11,13 @@ $ make install
 ## コンテナの起動確認
 
 ```bash
-make ps
+$ make ps
 ```
 
 もしくは
 
 ```bash
-docker-compose ps
+$ docker-compose ps
 ```
 
 ## PHPのワークスペースへの入り方
@@ -41,7 +41,7 @@ $ make client
 もしくは
 
 ```bash
-$ docker-compose exec client /bin/sh
+$ $ docker-compose exec client /bin/sh
 ```
 
 ## アクセスURL
@@ -77,26 +77,20 @@ $ docker-compose down
 ## log確認
 
 ```bash
-make logs
+$ make logs
 ```
 
 もしくは
 
 ```bash
-docker-compose logs
-```
-
-## log削除
-
-```bash
-make logs-clear
+$ $ make logs-clear
 ```
 
 もしくは
 
 ```bash
-sudo rm docker/nginx/logs/*.log
-sudo rm api/storage/logs/*.log
+$ sudo rm docker/nginx/logs/*.log
+$ sudo rm api/storage/logs/*.log
 ```
 
 ## postgresへの接続方法
@@ -124,7 +118,7 @@ make ...
 などのコマンドはMakefileを参照
 
 ```bash
-make {Makefileで定義されている任意のコマンド}
+$ make {Makefileで定義されている任意のコマンド}
 ```
 
 でMakefileに定義されているコマンドが実行できる
