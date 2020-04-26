@@ -2,7 +2,7 @@ up:
 	docker-compose up -d
 down:
 	docker-compose down
-status:
+ps:
 	docker-compose ps
 logs:
 	docker-compose logs
@@ -27,7 +27,7 @@ mseed:
 composer-install:
 	docker-compose exec php composer install
 composer-update:
-	docker-compose exec php composer install
+	docker-compose exec php composer update
 env-api:
 	cp .env.api api/.env
 env-client:
