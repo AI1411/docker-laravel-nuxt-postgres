@@ -1,0 +1,45 @@
+up:
+	docker-compose up -d
+down:
+	docker-compose down
+status:
+	docker-compose ps
+logs:
+	docker-compose logs
+build:
+	docker-compose up -d --build
+php:
+	docker-compose exec php bash
+client:
+	docker-compose exec client /bin/sh
+logs-clear:
+	sudo rm docker/nginx/logs/*.log
+	sudo rm api/storage/logs/*.log
+db-migrate:
+	docker-compose exec php php artisan migrate
+db-rollback:
+	docker-compose exec php php artisan rollback
+db-fresh:
+	docker-compose exec php php artisan migrate:fresh
+mseed:
+	docker-compose exec php php artisan migrate:fresh --seed
+composer-install:
+	docker-compose exec php composer install
+composer-update:
+	docker-compose exec php composer install
+env-api:
+	cp .env.api api/.env
+env-client:
+	cp .env.client client/.env
+#書き込み権限
+permissions:
+	sudo chmod -R 777 api/bootstrap/cache
+	sudo chmod -R 777 api/storage
+key:
+	docker-compose exec php php artisan key:generate --ansi
+storage:
+	docker-compose exec php php artisan storage:link
+autoload:
+	docker-compose exec php composer dump-autoload
+#まとめて実行
+install: build env-api env-client composer-install key storage permissions migrate rn
