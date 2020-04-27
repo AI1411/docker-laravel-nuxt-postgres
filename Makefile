@@ -29,9 +29,9 @@ composer-install:
 composer-update:
 	docker-compose exec php composer update
 env-api:
-	cp .env.api api/.env
+	cp api/.env.example api/.env
 env-client:
-	cp .env.client client/.env
+	cp client/.env.example client/.env
 #書き込み権限
 permissions:
 	sudo chmod -R 777 api/bootstrap/cache
