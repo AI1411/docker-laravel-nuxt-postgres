@@ -14,7 +14,7 @@ client:
 	docker-compose exec client /bin/sh
 logs-clear:
 	sudo rm docker/nginx/logs/*.log
-	sudo rm api/storage/logs/*.log
+	sudo rm php/storage/logs/*.log
 db-migrate:
 	docker-compose exec php php artisan migrate
 migrate: db-migrate
@@ -28,14 +28,14 @@ composer-install:
 	docker-compose exec php composer install
 composer-update:
 	docker-compose exec php composer update
-env-api:
-	cp api/.env.example api/.env
+env-php:
+	cp php/.env.example php/.env
 env-client:
 	cp client/.env.example client/.env
 #書き込み権限
 permissions:
-	sudo chmod -R 777 api/bootstrap/cache
-	sudo chmod -R 777 api/storage
+	sudo chmod -R 777 php/bootstrap/cache
+	sudo chmod -R 777 php/storage
 key:
 	docker-compose exec php php artisan key:generate --ansi
 storage:
@@ -43,4 +43,4 @@ storage:
 autoload:
 	docker-compose exec php composer dump-autoload
 #まとめて実行
-install: build env-api env-client composer-install key storage permissions migrate
+install: build env-php env-client composer-install key storage permissions migrate

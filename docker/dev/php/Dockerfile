@@ -49,4 +49,4 @@ RUN apt-get -y autoremove
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Set up default directory
-WORKDIR /var/www/api
+WORKDIR /var/www/php

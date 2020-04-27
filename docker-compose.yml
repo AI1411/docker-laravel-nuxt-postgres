@@ -23,7 +23,7 @@ services:
       context: docker/dev/php
       dockerfile: Dockerfile
     volumes:
-      - ./api:/var/www/api
+      - ./php:/var/www/php
     links:
       - postgres
 
