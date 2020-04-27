@@ -41,7 +41,7 @@ $ make client
 もしくは
 
 ```bash
-$ $ docker-compose exec client /bin/sh
+$ docker-compose exec client /bin/sh
 ```
 
 ## アクセスURL
@@ -73,6 +73,16 @@ $ make down
 ```bash
 $ docker-compose down
 ```
+
+## downとstopの違いについて
+
+- downはdocker-compose.ymlに定義されたcontainer・networkを停止・削除する
+
+- stopは起動中のコンテナを削除せずに停止する。削除していないので、docker-compose startで再起動する。
+
+- docker-compose　downで停止させた場合、docker-compose up- dで起動する必要がある
+
+- docker-compose stopで停止させた場合、docker-compose start docker-compose up -dどちらでも起動可能
 
 ## log確認
 
