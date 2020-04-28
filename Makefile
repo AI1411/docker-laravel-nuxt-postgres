@@ -8,7 +8,7 @@ logs:
 	docker-compose logs
 build:
 	docker-compose up -d --build
-php:
+api:
 	docker-compose exec php bash
 client:
 	docker-compose exec client /bin/sh
