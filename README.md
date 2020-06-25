@@ -48,7 +48,7 @@ $ docker-compose exec client /bin/sh
 
 フロントエンドにアクセス　http://localhost:8080 
 
-バックエンドにアクセス　　http://localhost:8080
+バックエンドにアクセス　　http://localhost:8081
 
 ## コンテナの立ち上げ方
 
